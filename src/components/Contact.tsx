@@ -1,6 +1,42 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin, Mail, Phone } from 'lucide-react'
+import { Linkedin, Mail, Phone, Instagram } from 'lucide-react'
+
+const VSCOIcon = ({ size = 28, className = '' }: { size?: number; className?: string }) => {
+  const center = 12
+  const outerRadius = 10
+  const middleRadius = 7
+  const innerRadius = 3
+  
+  // Create 16 radial lines
+  const radialLines = []
+  for (let i = 0; i < 16; i++) {
+    const angle = (i * Math.PI * 2) / 16
+    const x1 = center + Math.cos(angle) * outerRadius
+    const y1 = center + Math.sin(angle) * outerRadius
+    const x2 = center + Math.cos(angle) * innerRadius
+    const y2 = center + Math.sin(angle) * innerRadius
+    radialLines.push(
+      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="0.8" />
+    )
+  }
+  
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle cx={center} cy={center} r={outerRadius} stroke="currentColor" strokeWidth="1.5" fill="none" />
+      <circle cx={center} cy={center} r={middleRadius} stroke="currentColor" strokeWidth="1" fill="none" />
+      <circle cx={center} cy={center} r={innerRadius} fill="currentColor" />
+      {radialLines}
+    </svg>
+  )
+}
 
 export default function Contact(){
   return (
@@ -15,7 +51,7 @@ export default function Contact(){
         Contact
       </motion.h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+      <div className="flex justify-center gap-6">
         <motion.a
           href="https://www.linkedin.com/in/nischalthp?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           target="_blank"
@@ -24,18 +60,10 @@ export default function Contact(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          whileHover={{ scale: 1.02, y: -4 }}
-          className="group p-6 glass rounded-xl border border-white/20 hover:border-orange-400/50 transition-all flex flex-col items-center text-center space-y-3"
+          whileHover={{ scale: 1.1, y: -4 }}
+          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <div className="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-            <Linkedin size={24} className="text-orange-400" />
-          </div>
-          <div className="space-y-1">
-            <div className="text-sm text-gray-400 font-medium">LinkedIn</div>
-            <div className="text-base text-gray-100 group-hover:text-orange-400 transition-colors">
-              linkedin.com/in/nischalthp
-            </div>
-          </div>
+          <Linkedin size={28} className="text-orange-400" />
         </motion.a>
 
         <motion.a
@@ -44,18 +72,10 @@ export default function Contact(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          whileHover={{ scale: 1.02, y: -4 }}
-          className="group p-6 glass rounded-xl border border-white/20 hover:border-orange-400/50 transition-all flex flex-col items-center text-center space-y-3"
+          whileHover={{ scale: 1.1, y: -4 }}
+          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <div className="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-            <Mail size={24} className="text-orange-400" />
-          </div>
-          <div className="space-y-1">
-            <div className="text-sm text-gray-400 font-medium">Email</div>
-            <div className="text-base text-gray-100 group-hover:text-orange-400 transition-colors break-all">
-              nischal.thapa04@outlook.com
-            </div>
-          </div>
+          <Mail size={28} className="text-orange-400" />
         </motion.a>
 
         <motion.a
@@ -64,18 +84,38 @@ export default function Contact(){
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          whileHover={{ scale: 1.02, y: -4 }}
-          className="group p-6 glass rounded-xl border border-white/20 hover:border-orange-400/50 transition-all flex flex-col items-center text-center space-y-3"
+          whileHover={{ scale: 1.1, y: -4 }}
+          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <div className="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-            <Phone size={24} className="text-orange-400" />
-          </div>
-          <div className="space-y-1">
-            <div className="text-sm text-gray-400 font-medium">Phone</div>
-            <div className="text-base text-gray-100 group-hover:text-orange-400 transition-colors">
-              +977 9858070886
-            </div>
-          </div>
+          <Phone size={28} className="text-orange-400" />
+        </motion.a>
+
+        <motion.a
+          href="https://www.instagram.com/nischal_thp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          whileHover={{ scale: 1.1, y: -4 }}
+          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+        >
+          <Instagram size={28} className="text-orange-400" />
+        </motion.a>
+
+        <motion.a
+          href="https://vsco.co/nischalthp"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          whileHover={{ scale: 1.1, y: -4 }}
+          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+        >
+          <VSCOIcon size={28} className="text-orange-400" />
         </motion.a>
       </div>
     </section>
