@@ -14,14 +14,14 @@ export default function Projects(){
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="flex items-center justify-between mb-6"
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6"
       >
-        <h3 className="text-xl font-semibold">Selected Projects</h3>
-        <Link to="/projects">
+        <h3 className="text-lg sm:text-xl font-semibold">Selected Projects</h3>
+        <Link to="/projects" className="w-full sm:w-auto">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-sm text-orange-400 hover:text-orange-300 border border-orange-400/30 hover:border-orange-400/50 px-4 py-2 rounded-lg transition-all"
+            className="w-full sm:w-auto text-sm text-orange-400 hover:text-orange-300 border border-orange-400/30 hover:border-orange-400/50 px-4 py-2 rounded-lg transition-all"
           >
             View More Projects →
           </motion.button>
@@ -51,8 +51,8 @@ export default function Projects(){
                   </>
                 )}
               </div>
-              <div className="font-semibold text-lg mb-2">{p.title}</div>
-              <div className="text-base text-gray-100 my-2 flex-grow">{p.desc}</div>
+              <div className="font-semibold text-base sm:text-lg mb-2">{p.title}</div>
+              <div className="text-sm sm:text-base text-gray-100 my-2 flex-grow">{p.desc}</div>
               <div className="flex flex-wrap gap-2 mb-3">
                 {p.tools.map(t => (
                   <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded border border-white/5">

@@ -21,15 +21,15 @@ export default function AllProjects() {
     <div className="min-h-screen font-sans bg-[#1a1a1a] text-gray-100">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-8 sm:pb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-6 sm:mb-8"
         >
-          <h1 className="text-4xl font-bold mb-4">All Projects</h1>
-          <p className="text-gray-400">Explore all my mechanical engineering projects and designs</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">All Projects</h1>
+          <p className="text-sm sm:text-base text-gray-400">Explore all my mechanical engineering projects and designs</p>
         </motion.div>
 
         {/* Category Filter */}
@@ -88,8 +88,8 @@ export default function AllProjects() {
                 {p.category && (
                   <div className="text-xs text-orange-400 mb-2 font-medium">{p.category}</div>
                 )}
-                <div className="font-semibold text-lg mb-2">{p.title}</div>
-                <div className="text-base text-gray-100 my-2 flex-grow">{p.desc}</div>
+                <div className="font-semibold text-base sm:text-lg mb-2">{p.title}</div>
+                <div className="text-sm sm:text-base text-gray-100 my-2 flex-grow">{p.desc}</div>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {p.tools.map(t => (
                     <span key={t} className="text-xs bg-white/6 px-2 py-1 rounded border border-white/5">

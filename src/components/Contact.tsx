@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Linkedin, Mail, Phone, Instagram } from 'lucide-react'
 
-const VSCOIcon = ({ size = 28, className = '' }: { size?: number; className?: string }) => {
+const VSCOIcon = ({ className = '' }: { className?: string }) => {
   const center = 12
   const outerRadius = 10
   const middleRadius = 7
@@ -23,12 +23,10 @@ const VSCOIcon = ({ size = 28, className = '' }: { size?: number; className?: st
   
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`w-6 h-6 ${className}`}
     >
       <circle cx={center} cy={center} r={outerRadius} stroke="currentColor" strokeWidth="1.5" fill="none" />
       <circle cx={center} cy={center} r={middleRadius} stroke="currentColor" strokeWidth="1" fill="none" />
@@ -40,8 +38,8 @@ const VSCOIcon = ({ size = 28, className = '' }: { size?: number; className?: st
 
 export default function Contact(){
   return (
-    <section id="contact" className="py-12">
-      <div className="flex justify-center gap-6">
+    <section id="contact" className="py-8 sm:py-12">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
         <motion.a
           href="https://www.linkedin.com/in/nischalthp?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           target="_blank"
@@ -51,9 +49,9 @@ export default function Contact(){
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
           whileHover={{ scale: 1.1, y: -4 }}
-          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+          className="group w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <Linkedin size={28} className="text-orange-400" />
+          <Linkedin size={24} className="sm:w-7 sm:h-7 text-orange-400" />
         </motion.a>
 
         <motion.a
@@ -63,9 +61,9 @@ export default function Contact(){
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           whileHover={{ scale: 1.1, y: -4 }}
-          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+          className="group w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <Mail size={28} className="text-orange-400" />
+          <Mail size={24} className="sm:w-7 sm:h-7 text-orange-400" />
         </motion.a>
 
         {/* <motion.a
@@ -89,9 +87,9 @@ export default function Contact(){
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
           whileHover={{ scale: 1.1, y: -4 }}
-          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+          className="group w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <Instagram size={28} className="text-orange-400" />
+          <Instagram size={24} className="sm:w-7 sm:h-7 text-orange-400" />
         </motion.a>
 
         <motion.a
@@ -103,9 +101,9 @@ export default function Contact(){
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
           whileHover={{ scale: 1.1, y: -4 }}
-          className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
+          className="group w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
-          <VSCOIcon size={28} className="text-orange-400" />
+          <VSCOIcon className="text-orange-400" />
         </motion.a>
       </div>
     </section>

@@ -79,31 +79,6 @@ const allExperience = [
       'Assisted in handing the After Sales Support for Asia Market with coordination with various operation teams',
       'Gained experience in Service Issue Diagnosis, Spare Parts Operations and International Business Operations'
     ]
-  },
-  {
-    title: 'Engineering Intern',
-    company: 'Nebico Pvt. Ltd.',
-    location: 'Balaju Industrial District, Balaju, Kathmandu, Nepal',
-    dates: 'Jan 2022 - Mar 2022 · 3 mos',
-    year: '2022',
-    responsibilities: [
-      'Optimized installation and trials for new machinery in the production house',
-      'Addressed technical and engineering issues and performed regular supervision and maintenance with industry protocols',
-      'Designed and manufactured machine components for production improvement'
-    ]
-  },
-  {
-    title: 'Undergraduate Research Assistant',
-    company: 'Manav Rachna International Institute of Research & Studies',
-    location: 'Faridabad, Haryana, India',
-    dates: 'Aug 2020 - Dec 2021 · 1 yr 5 mos',
-    year: '2021',
-    responsibilities: [
-      'Conducted literature reviews and gathered data through reviews and experiments',
-      'Performed laboratory experiments and maintained detailed records',
-      'Managed references and citations, to create bibliographies and ensure accurate referencing in research publications',
-      'Assisted in the preparation of research reports, manuscripts, or presentations, and contributing to scientific papers or conference presentations based on the research findings'
-    ]
   }
 ]
 
@@ -112,7 +87,7 @@ export default function EducationExperience() {
   const [selectedExperience, setSelectedExperience] = useState<number>(0)
 
   return (
-    <section id="education-experience" className="py-12 space-y-16">
+    <section id="education-experience" className="py-8 sm:py-12 space-y-12 sm:space-y-16">
       {/* Education Section */}
       <div>
         <motion.h3 
@@ -120,19 +95,19 @@ export default function EducationExperience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-xl font-semibold mb-8"
+          className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8"
         >
           Education
         </motion.h3>
         
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
           {/* Left: Selectable Education Titles */}
-          <div className="md:w-80 flex-shrink-0">
-            <div className="relative pl-8">
+          <div className="lg:w-80 flex-shrink-0">
+            <div className="relative pl-6 sm:pl-8">
               {/* Vertical line */}
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400/50 via-orange-400/30 to-transparent" />
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {allEducation.map((edu, index) => {
                   const isActive = selectedEducation === index
                   return (
@@ -143,7 +118,7 @@ export default function EducationExperience() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className={`relative w-full text-left p-4 rounded-lg transition-all ${
+                      className={`relative w-full text-left p-3 sm:p-4 rounded-lg transition-all ${
                         isActive
                           ? 'bg-white/5 border border-orange-400/50 shadow-[0_0_20px_rgba(251,146,60,0.2)]'
                           : 'bg-white/3 border border-white/10 hover:bg-white/4 hover:border-orange-400/30'
@@ -152,7 +127,7 @@ export default function EducationExperience() {
                       whileTap={{ scale: 0.98 }}
                     >
                       {/* Timeline dot */}
-                      <div className={`absolute -left-8 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 transition-all ${
+                      <div className={`absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 transition-all ${
                         isActive
                           ? 'bg-orange-400 border-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.5)]'
                           : 'bg-[#1a1a1a] border-orange-400/50'
@@ -177,12 +152,12 @@ export default function EducationExperience() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex-1 bg-white/3 p-6 rounded-lg glass border border-white/10"
+            className="flex-1 bg-white/3 p-4 sm:p-6 rounded-lg glass border border-white/10"
           >
             {allEducation[selectedEducation] && (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <div className="font-semibold text-lg text-orange-400 mb-1">
+                  <div className="font-semibold text-base sm:text-lg text-orange-400 mb-1">
                     {allEducation[selectedEducation].degree}
                   </div>
                   <div className="text-sm text-gray-300 mt-1">
@@ -232,19 +207,19 @@ export default function EducationExperience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-xl font-semibold mb-8"
+          className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8"
         >
           Experience
         </motion.h3>
         
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
           {/* Left: Selectable Experience Titles */}
-          <div className="md:w-80 flex-shrink-0">
-            <div className="relative pl-8">
+          <div className="lg:w-80 flex-shrink-0">
+            <div className="relative pl-6 sm:pl-8">
               {/* Vertical line */}
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400/50 via-orange-400/30 to-transparent" />
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {allExperience.map((exp, index) => {
                   const isActive = selectedExperience === index
                   return (
@@ -255,7 +230,7 @@ export default function EducationExperience() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className={`relative w-full text-left p-4 rounded-lg transition-all ${
+                      className={`relative w-full text-left p-3 sm:p-4 rounded-lg transition-all ${
                         isActive
                           ? 'bg-white/5 border border-orange-400/50 shadow-[0_0_20px_rgba(251,146,60,0.2)]'
                           : 'bg-white/3 border border-white/10 hover:bg-white/4 hover:border-orange-400/30'
@@ -264,7 +239,7 @@ export default function EducationExperience() {
                       whileTap={{ scale: 0.98 }}
                     >
                       {/* Timeline dot */}
-                      <div className={`absolute -left-8 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 transition-all ${
+                      <div className={`absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 transition-all ${
                         isActive
                           ? 'bg-orange-400 border-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.5)]'
                           : 'bg-[#1a1a1a] border-orange-400/50'
@@ -289,12 +264,12 @@ export default function EducationExperience() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex-1 bg-white/3 p-6 rounded-lg glass border border-white/10"
+            className="flex-1 bg-white/3 p-4 sm:p-6 rounded-lg glass border border-white/10"
           >
             {allExperience[selectedExperience] && (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <div className="font-semibold text-lg text-orange-400 mb-1">
+                  <div className="font-semibold text-base sm:text-lg text-orange-400 mb-1">
                     {allExperience[selectedExperience].title}
                   </div>
                   <div className="text-sm text-gray-300 mt-1">
@@ -309,7 +284,7 @@ export default function EducationExperience() {
                 </div>
                 
                 {allExperience[selectedExperience].responsibilities && allExperience[selectedExperience].responsibilities.length > 0 && (
-                  <div className="pt-4 border-t border-white/10 space-y-2">
+                  <div className="pt-3 sm:pt-4 border-t border-white/10 space-y-2">
                     {allExperience[selectedExperience].responsibilities.map((resp, idx) => (
                       <div key={idx} className="text-sm text-gray-100 leading-relaxed">
                         • {resp}

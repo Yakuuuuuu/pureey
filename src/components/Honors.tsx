@@ -24,17 +24,17 @@ const honors = [
 
 export default function Honors(){
   return (
-    <section id="honors" className="py-12">
+    <section id="honors" className="py-8 sm:py-12">
       <motion.h3 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xl font-semibold mb-6"
+        className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6"
       >
         Honors & Awards
       </motion.h3>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {honors.map((honor, i) => (
           <motion.div
             key={i}
@@ -43,10 +43,10 @@ export default function Honors(){
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             whileHover={{ x: 5 }}
-            className="bg-white/3 p-4 rounded-lg glass hover:bg-white/4 transition-all"
+            className="bg-white/3 p-3 sm:p-4 rounded-lg glass hover:bg-white/4 transition-all"
           >
-            <div className="font-semibold text-orange-400">{honor.title}</div>
-            <div className="text-sm text-gray-300 mt-1">{honor.issuer}</div>
+            <div className="font-semibold text-sm sm:text-base text-orange-400">{honor.title}</div>
+            <div className="text-xs sm:text-sm text-gray-300 mt-1">{honor.issuer}</div>
             <div className="text-xs text-gray-400 mt-1">{honor.date}</div>
             <div className="text-xs text-gray-400 mt-2">Associated with {honor.associated}</div>
           </motion.div>

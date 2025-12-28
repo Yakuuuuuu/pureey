@@ -25,13 +25,13 @@ const publications = [
 
 export default function Publications(){
   return (
-    <section id="publications" className="py-12">
+    <section id="publications" className="py-8 sm:py-12">
       <motion.h3 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xl font-semibold mb-6"
+        className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6"
       >
         Publications
       </motion.h3>
@@ -45,8 +45,8 @@ export default function Publications(){
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card className="hover:translate-y-[-6px] transition-all duration-300 hover:shadow-card-lg h-full flex flex-col">
-              <div className="font-semibold text-lg mb-2">{pub.title}</div>
-              <div className="text-base text-gray-100 my-2 flex-grow">{pub.publisher}</div>
+              <div className="font-semibold text-base sm:text-lg mb-2">{pub.title}</div>
+              <div className="text-sm sm:text-base text-gray-100 my-2 flex-grow">{pub.publisher}</div>
               <div className="flex flex-wrap gap-2 mb-3">
                 <span className="text-xs bg-white/6 px-2 py-1 rounded border border-white/5">
                   {pub.date}

@@ -13,17 +13,17 @@ const skills = [
 
 export default function Skills(){
   return (
-    <section id="skills" className="py-12">
+    <section id="skills" className="py-8 sm:py-12">
       <motion.h3 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xl font-semibold mb-4"
+        className="text-lg sm:text-xl font-semibold mb-4"
       >
         Skills
       </motion.h3>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 sm:gap-3">
         {skills.map((s, index) => (
           <motion.div
             key={s}

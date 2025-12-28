@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const location = useLocation()
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     if (location.pathname !== '/') {
@@ -74,6 +76,10 @@ export default function Navbar() {
     { href: '#contact', label: 'Contact' }
   ]
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -82,14 +88,15 @@ export default function Navbar() {
         isScrolled ? 'bg-[#1a1a1a]/95 backdrop-blur-md border-b border-white/15' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-center">
-        <div className="flex items-center gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6 mx-auto flex-1">
           {location.pathname === '/' ? (
             navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors relative ${
+                className={`text-base transition-colors relative ${
                   activeSection === link.href.slice(1)
                     ? 'text-orange-400 font-semibold'
                     : 'text-gray-100 hover:text-orange-400'
@@ -108,12 +115,58 @@ export default function Navbar() {
             ))
           ) : (
             <>
-              <Link to="/" className="text-sm text-gray-100 hover:text-orange-400">Home</Link>
-              <Link to="/projects" className="text-sm text-orange-400 font-semibold">Projects</Link>
+              <Link to="/" className="text-base text-gray-100 hover:text-orange-400">Home</Link>
+              <Link to="/projects" className="text-base text-orange-400 font-semibold">Projects</Link>
             </>
           )}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden text-gray-100 hover:text-orange-400 transition-colors p-2 ml-auto"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-[#1a1a1a]/98 backdrop-blur-md border-b border-white/15 overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto px-4 py-4 space-y-3 text-right">
+              {location.pathname === '/' ? (
+                navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className={`block text-base py-2 transition-colors ${
+                      activeSection === link.href.slice(1)
+                        ? 'text-orange-400 font-semibold'
+                        : 'text-gray-100 hover:text-orange-400'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ))
+              ) : (
+                <>
+                  <Link to="/" onClick={handleLinkClick} className="block text-base py-2 text-gray-100 hover:text-orange-400">Home</Link>
+                  <Link to="/projects" onClick={handleLinkClick} className="block text-base py-2 text-orange-400 font-semibold">Projects</Link>
+                </>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
