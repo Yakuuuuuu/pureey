@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Card from './ui/Card'
 
 const publications = [
   {
@@ -34,27 +35,33 @@ export default function Publications(){
       >
         Publications
       </motion.h3>
-      <div className="space-y-4">
-        {publications.map((pub, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {publications.map((pub, index) => (
           <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            whileHover={{ x: 5 }}
-            className="bg-white/3 p-4 rounded-lg glass hover:bg-white/4 transition-all"
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <a 
-              href={pub.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="font-semibold text-orange-400 hover:text-orange-300 transition-colors cursor-pointer inline-block"
-            >
-              {pub.title}
-            </a>
-            <div className="text-sm text-gray-300 mt-1">{pub.publisher}</div>
-            <div className="text-xs text-gray-400 mt-1">{pub.date}</div>
+            <Card className="hover:translate-y-[-6px] transition-all duration-300 hover:shadow-card-lg h-full flex flex-col">
+              <div className="font-semibold text-lg mb-2">{pub.title}</div>
+              <div className="text-base text-gray-100 my-2 flex-grow">{pub.publisher}</div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="text-xs bg-white/6 px-2 py-1 rounded border border-white/5">
+                  {pub.date}
+                </span>
+              </div>
+              <motion.a 
+                href={pub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 5 }}
+                className="inline-flex items-center gap-2 text-sm text-orange-400 hover:text-orange-300 transition-colors" 
+              >
+                View Publication →
+              </motion.a>
+            </Card>
           </motion.div>
         ))}
       </div>
