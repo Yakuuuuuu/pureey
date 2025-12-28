@@ -78,7 +78,7 @@ export default function Contact(){
           <Mail size={28} className="text-orange-400" />
         </motion.a>
 
-        <motion.a
+        {/* <motion.a
           href="tel:+9779858070886"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function Contact(){
           className="group w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all"
         >
           <Phone size={28} className="text-orange-400" />
-        </motion.a>
+        </motion.a> */}
 
         <motion.a
           href="https://www.instagram.com/nischal_thp/"

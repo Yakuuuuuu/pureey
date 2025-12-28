@@ -16,7 +16,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
       
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'honors', 'publications', 'contact']
+      const sections = ['home', 'about', 'skills', 'projects', 'education-experience', 'honors', 'publications', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -33,7 +33,7 @@ export default function Navbar() {
 
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1)
-      if (hash && ['home', 'about', 'skills', 'projects', 'experience', 'honors', 'publications', 'contact'].includes(hash)) {
+      if (hash && ['home', 'about', 'skills', 'projects', 'education-experience', 'experience', 'honors', 'publications', 'contact'].includes(hash)) {
         setTimeout(() => {
           handleScroll()
         }, 100)
@@ -68,9 +68,9 @@ export default function Navbar() {
   const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#projects', label: 'Projects' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#honors', label: 'Awards' },
+    { href: '#education-experience', label: 'Education & Experience' },
     { href: '#publications', label: 'Publications' },
+    { href: '#honors', label: 'Awards' },
     { href: '#contact', label: 'Contact' }
   ]
 

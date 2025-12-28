@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Phone } from 'lucide-react'
 import Button from './ui/Button'
 import Card from './ui/Card'
 import profileImage from '../assets/profile-image.jpeg'
@@ -38,6 +39,16 @@ export default function Hero(){
           >
             Matatirtha, Kathmandu
           </motion.div>
+          <motion.a
+            href="tel:+9779858070886"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.45 }}
+            className="flex items-center gap-2 text-lg text-gray-200 hover:text-orange-400 transition-colors"
+          >
+            <Phone size={18} className="text-orange-400" />
+            <span>+977 9858070886</span>
+          </motion.a>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
