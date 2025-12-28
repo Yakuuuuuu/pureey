@@ -41,16 +41,6 @@ const VSCOIcon = ({ size = 28, className = '' }: { size?: number; className?: st
 export default function Contact(){
   return (
     <section id="contact" className="py-12">
-      <motion.h3 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-xl font-semibold mb-8"
-      >
-        Contact
-      </motion.h3>
-      
       <div className="flex justify-center gap-6">
         <motion.a
           href="https://www.linkedin.com/in/nischalthp?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"

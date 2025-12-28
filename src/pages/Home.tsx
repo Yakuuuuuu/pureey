@@ -35,17 +35,6 @@ export default function Home() {
               Engineering precision & reliable mechanical solutions. Passion for design, manufacturing and real-world systems.
             </div>
 
-            <div className="mt-6 flex gap-3">
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex-1 text-center px-3 py-2 border border-white/25 rounded-lg text-gray-100 hover:border-orange-400/50 hover:text-orange-400 transition-all"
-              >
-                Contact
-              </motion.a>
-            </div>
-
             <div className="mt-6 text-xs text-gray-400">
               <div>Skills: SolidWorks · AutoCAD · PTC Creo</div>
             </div>
@@ -57,8 +46,8 @@ export default function Home() {
           <Hero />
           <About />
           <Skills />
-          <Projects />
           <EducationExperience />
+          <Projects />
           <Publications />
           <Honors />
           <Contact />
